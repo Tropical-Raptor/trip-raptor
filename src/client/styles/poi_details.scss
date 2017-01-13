@@ -6,23 +6,25 @@
   font-size: 14px;
   position: absolute;
   text-align: left;
-  padding-left: 18px;
+  padding: 12px;
+  width: 25%;
+
 }
 
 h4 {
   color: darkblue;
 }
 
-.webDetailLink {
-  color: darkblue
+a {
+  color: darkblue;
 }
 
 .picDetail {
-  margin-top: 25px;
-  margin-left: 80px;
+  text-align: center;
 }
 
 .addButton {
   margin-left: 25px;
   margin-bottom: 20px;
 }
+

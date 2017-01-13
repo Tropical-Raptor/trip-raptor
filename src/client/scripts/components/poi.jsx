@@ -79,7 +79,7 @@ class POI extends Component {
           <div
             onClick={() => this.props.goBack(localRoot, currentCity)}
           >
-            <div>
+            <div >
               { localRoot }
             </div>
           </div>
@@ -105,8 +105,13 @@ class POI extends Component {
     } else if (this.props.nodePosition === 'leaf') {
       status = (
         <OverlayTrigger trigger="click" delayShow={2800} placement="bottom" overlay={showDetail} rootClose>
-          <div onClick={() => this.props.onLeafClick(currentCity, this.props.query, localRoot, this.props.query)}>
+          <div
+onClick={() => this.props.onLeafClick(currentCity, this.props.query, localRoot, this.props.query)}
+            styleName="branchTitle"
+          >
+
             {this.props.branchTitle}
+
           </div>
         </OverlayTrigger>
         );

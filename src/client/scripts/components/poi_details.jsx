@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Carousel } from 'react-bootstrap';
+
+import * as AddToItinerary from '../actions/add_to_itinerary_action';
 import * as POIInfo from '../actions/fetch_poi_info_action';
 import AddButton from '../containers/addButton';
 import RemoveButton from '../containers/removeButton';
@@ -56,17 +59,13 @@ class POIDetails extends Component {
 
     if (selectedDetails.photos) {
       image = (
-        <div>
-          {selectedDetails.photos.map(pic => (
-            <img
-              role="presentation"
-              styleName="picDetail"
-              src={`${pic.getUrl({ maxWidth: 250, maxHeight: 250 })}`}
-            />
-            ),
-          )}
+        <div styleName="picDetail">
+          <img
+            role="presentation"
+            src={`${selectedDetails.photos[0].getUrl({ maxWidth: 250, maxHeight: 250 })}`}
+          />
         </div>
-      );
+        );
     } else {
       image = <div />;
     }
@@ -96,7 +95,7 @@ class POIDetails extends Component {
     }
 
     if (selectedDetails.website) {
-      website = <div> Website: <a target="_blank" rel="noopener noreferrer" href={selectedDetails.website} styleName="webDetailLink"> {selectedDetails.website} </a> </div>;
+      website = <div> Website: <a target="_blank" rel="noopener noreferrer" href={selectedDetails.website} > {selectedDetails.website} </a> </div>;
     } else {
       website = <div />;
     }
@@ -108,21 +107,17 @@ class POIDetails extends Component {
     }
 
     return (
-      <div>
-        <div styleName="poiDetail">
-          <div >
-            { image }
-            <h3>{selectedDetails.name}</h3>
-            { rating }
-            <div>
-              { formattedAddress }
-              { formattedPhoneNumber }
-              { internationalPhoneNumber }
-              { website }
-            </div>
-            { button }
-          </div>
+      <div className="pull-left" styleName="poiDetail" >
+        { image }
+        <h3>{selectedDetails.name}</h3>
+        { rating }
+        <div>
+          { formattedAddress }
+          { formattedPhoneNumber }
+          { internationalPhoneNumber }
+          { website }
         </div>
+        { button }
       </div>
     );
   }

@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Modal, Button } from 'react-bootstrap';
+import * as RemoveFromItinerary from '../actions/remove_from_itinerary_action';
 import RemoveButton from '../containers/removeButton';
 // import Share from './share';
 
@@ -8,6 +10,7 @@ import '../../styles/itinerary.scss';
 const mapStatetoProps = state => ({
   itinerary: state.itinerary,
 });
+
 
 class Itinerary extends Component {
   render() {
@@ -19,12 +22,14 @@ class Itinerary extends Component {
     }
 
     return (
+
+
       <div styleName="listbox">
         {cities.map(city => (
-          <ul> <h1>{city} </h1>
+          <ul> <h2>{city} </h2>
             {this.props.itinerary.itinerary[city].map((POI, index) => (
               <li>
-                <h2>{ POI.currentRoot }</h2>
+                <h3>{ POI.currentRoot }</h3>
                 { POI.name }<br />
                 { POI.formatted_phone_number }<br />
                 { POI.international_phone_number }<br />
