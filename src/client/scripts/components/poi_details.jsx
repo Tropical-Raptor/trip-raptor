@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Carousel } from 'react-bootstrap';
 
-import * as AddToItinerary from '../actions/add_to_itinerary_action';
 import * as POIInfo from '../actions/fetch_poi_info_action';
 import AddButton from '../containers/addButton';
 import RemoveButton from '../containers/removeButton';
